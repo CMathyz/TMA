@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>{{statePopin()}}</h1>
+<div mat-dialog-content>
+  <p>Quel est le nom de votre produit ? </p>
+  <mat-form-field appearance="fill">
+    <mat-label>nom du produit</mat-label>
+    <input matInput [(ngModel)]="produit.name" >
+  </mat-form-field>
+
+  <p>Quel est son prix ? </p>
+  <mat-form-field appearance="fill">
+    <mat-label>prix</mat-label>
+    <input type="number" matInput [(ngModel)]="produit.price">
+  </mat-form-field>
+
+  <p>Quelle est la quantité ? </p>
+  <mat-form-field appearance="fill">
+    <mat-label>quantité</mat-label>
+    <input type="number" step="1" matInput [(ngModel)]="produit.quantity" (keydown)="preventFloat($event)">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button (click)="submit()">OK</button>
+</div>
